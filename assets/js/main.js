@@ -21,68 +21,64 @@ if(navClose){
 
 
 /*=============== DAY COUNTER FOR CHRISTMAS ===============*/
-const titleData = document.getElementById('title-data'),
-      numberData = document.getElementById('number-data'),
-      textData = document.getElementById('text-data'),
-      msgChristmas = document.getElementById('msg-chrismas');
+const titleData = document.getElementById('title-data');
+const numberData = document.getElementById('number-data');
+const textData = document.getElementById('text-data');
+const msgChristmas = document.getElementById('msg-chrismas');
 
 const christmasCountdown = () => {
-    let now = new Date(),
-        currentMonth = now.getMonth() + 1,
-        currentDay = now.getDate();
+    const now = new Date();
+    const currentMonth = now.getMonth() + 1;
+    const currentDay = now.getDate();
 
     let nextChristmasYear = now.getFullYear();
-    if (currentMonth == 12 && currentDay > 25) {
+    if (currentMonth === 12 && currentDay > 25) {
         nextChristmasYear += 1;
     }
 
-    let nextChristmasDate = `Dec 25, ${nextChristmasYear} 00:00:00`;
-    let ChristmasDay = new Date(nextChristmasDate);
-    let timeLeft = ChristmasDay - now;
+    const nextChristmasDate = `Dec 25, ${nextChristmasYear} 00:00:00`;
+    const ChristmasDay = new Date(nextChristmasDate);
+    const timeLeft = ChristmasDay - now;
 
-    let days = 0,
-        hours = 0,
-        minutes = 0,
-        seconds = 0;
+    const days = Math.floor(timeLeft / 1000 / 60 / 60 / 24);
+    const hours = Math.floor(timeLeft / 1000 / 60 / 60) % 24;
+    const minutes = Math.floor(timeLeft / 1000 / 60) % 60;
+    const seconds = Math.floor(timeLeft / 1000) % 60;
 
-    if (currentMonth != 12 || (currentMonth == 12 && currentDay != 25)) {
-        days = Math.floor(timeLeft / 1000 / 60 / 60 / 24);
-        hours = Math.floor(timeLeft / 1000 / 60 / 60) % 24;
-        minutes = Math.floor(timeLeft / 1000 / 60) % 60;
-        seconds = Math.floor(timeLeft / 1000) % 60;
-    }
+    updateCountdownDisplay(days, hours, minutes, seconds);
+    handleSpecialMessages(currentMonth, currentDay);
+};
 
+const updateCountdownDisplay = (days, hours, minutes, seconds) => {
     numberData.innerHTML = days < 10 ? `0${days}` : days;
-    textData.innerHTML = 'Days';
+    textData.innerHTML = days === 1 ? 'Day' : 'Days';
 
-    if (currentDay == 24) {
-        numberData.innerHTML = hours < 10 ? `0${hours}` : hours;
-        textData.innerHTML = 'Hours';
+    if (days === 0 && hours === 0) {
+        numberData.innerHTML = minutes < 10 ? `0${minutes}` : minutes;
+        textData.innerHTML = minutes === 1 ? 'Minute' : 'Minutes';
 
-        if (hours === 0) {
-            numberData.innerHTML = minutes < 10 ? `0${minutes}` : minutes;
-            textData.innerHTML = 'Minutes';
-
-            if (minutes === 0) {
-                numberData.innerHTML = seconds < 10 ? `0${seconds}` : seconds;
-                textData.innerHTML = 'Seconds';
-            }
+        if (minutes === 0) {
+            numberData.innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+            textData.innerHTML = seconds === 1 ? 'Second' : 'Seconds';
         }
     }
+};
 
-    if (currentMonth == 12 && currentDay == 25) {
+const handleSpecialMessages = (currentMonth, currentDay) => {
+    if (currentMonth === 12 && currentDay === 25) {
         titleData.style.display = 'none';
         msgChristmas.style.display = 'block';
         msgChristmas.innerHTML = 'Today is Dec 25, Merry Christmas';
     }
 
-    if (currentMonth == 12 && currentDay == 26) {
+    if (currentMonth === 12 && currentDay === 26) {
         titleData.style.display = 'block';
         msgChristmas.style.display = 'none';
     }
 };
 
 setInterval(christmasCountdown, 1000);
+
 
 
 
