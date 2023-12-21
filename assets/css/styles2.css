@@ -365,12 +365,54 @@ img {
   top: 6rem;
   z-index: -1;
 }
+
+
+.container .header {
+    font-size: 3rem;
+    margin-inline: 1rem;
+    margin: 2rem 0;
+    text-transform: capitalize;
+    color: var(--purple);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: .2rem;
+    text-align: center;
+    text-shadow: 0 .3rem .5ren rgba(0, 0, 0, .5);
+    
+      }
+
+      .gallery {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .gallery a { 
+        height: 200px;
+        width: 300px;
+        margin: 20px;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
+        overflow: hidden;
+        border-radius: 5px;
+      }
+
+      .gallery a img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .gallery a img:hover {
+        transform: scale(1.4);
+
+      }
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 360px) {
   .container {
     margin-inline: 1rem;
-
   }
 
   .nav__buttons{
