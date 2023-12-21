@@ -52,22 +52,19 @@ const christmasCountdown = () => {
         seconds = Math.floor(timeLeft / 1000) % 60;
     }
 
-    // Function to format numbers to have leading zeros
-    const addLeadingZero = (number) => (number < 10 ? `0${number}` : number);
-
     numberData.innerHTML = days < 10 ? `0${days}` : days;
     textData.innerHTML = 'วัน';
 
     if (currentDay == 24) {
-        numberData.innerHTML = addLeadingZero(hours);
+        numberData.innerHTML = hours < 10 ? `0${hours}` : hours;
         textData.innerHTML = 'ชั่วโมง';
 
         if (hours === 0) {
-            numberData.innerHTML = addLeadingZero(minutes);
+            numberData.innerHTML = minutes < 10 ? `0${minutes}` : minutes;
             textData.innerHTML = 'นาที';
 
             if (minutes === 0) {
-                numberData.innerHTML = addLeadingZero(seconds);
+                numberData.innerHTML = seconds < 10 ? `0${seconds}` : seconds;
                 textData.innerHTML = 'วินาที';
             }
         }
@@ -75,8 +72,8 @@ const christmasCountdown = () => {
 
     if (currentMonth == 12 && currentDay == 25) {
         titleData.style.display = 'none';
-        msgChristmas.style.display = 'block';
-        msgChristmas.innerHTML = 'วันนี้คือ 25 ธันวาคม, สุขสันต์วันคริสต์มาส';
+        msgChristmas.style.display = 'block';msgChristmas.innerHTML = '<div style="text-align: center;"><span style="color: #000000;">วันนี้ 25 ธันวาคม 2566 </span> <br> Merry Christmas</div>';
+        msgChristmas.innerHTML = '<div style="text-align: center;"><span style="color: #000000;">วันนี้ 25 ธันวาคม 2566 </span> <br> Merry Christmas</div>';
     }
 
     if (currentMonth == 12 && currentDay == 26) {
@@ -86,9 +83,6 @@ const christmasCountdown = () => {
 };
 
 setInterval(christmasCountdown, 1000);
-
-
-
 
 
 
