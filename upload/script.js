@@ -168,7 +168,7 @@ function addMediaQueryStyles() {
         margin-right: 0 !important;
       }
       .swal-mobile-title {
-        font-size: 23px !important;
+        font-size: 22px !important;
       }
       .swal-mobile-html {
         font-size: 20px !important;
