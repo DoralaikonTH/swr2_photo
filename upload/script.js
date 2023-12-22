@@ -161,14 +161,14 @@ function handleUploadFailure(name) {
 // Add a style element to the head with the specified media query styles
 function addMediaQueryStyles() {
   const styles = `
-    @media (max-width: 324px) {
+    @media (max-width: 344px) {
       .swal-mobile-size {
         width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
       }
       .swal-mobile-title {
-        font-size: 25px !important;
+        font-size: 23px !important;
       }
       .swal-mobile-html {
         font-size: 20px !important;
