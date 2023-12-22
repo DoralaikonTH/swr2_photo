@@ -104,7 +104,7 @@ async function uploadFile(file, name) {
 }
 
 function updateUI(name, responseData) {
-  const fileLoaded = 100;
+  const fileLoaded = 10;
   const fileSize = (responseData.bytes / (1024 * 1024)).toFixed(2) + " MB";
 
   const progressHTML = `<li class="row">
