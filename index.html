@@ -19,47 +19,43 @@
       <!--==================== HEADER ====================-->
       <header class="header" id="header">
          <nav class="nav container">
-            <a href="https://swr2photo.github.io/Christmas" class="nav__logo">
+            <a href="/" class="nav__logo">
                <span>Swr2_Photo</span>
                <span>Merry Christmas</span>
             </a>
 
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="https://swr2photo.github.io/Christmas" class="nav__link active-link">
-                        <span>01</span> หน้าหลัก
-                     </a>
-                  </li>
-                  
-                    <!-- <li class="nav__item">
-                        <a href="crad.html" class="nav__link active-link" >
+                     <li class="nav__item">
+                        <a href="https://swr2photo.github.io/Christmas/" class="nav__link active-link ">
+                           <span>01</span> หน้าหลัก
+                        </a>
+                     </li>
+                     
+                     <li class="nav__item">
+                        <a href="Announcement.html" class="nav__link" >
                            <span>02</span> ประกาศผลผู้ชนะ
                         </a>
-                     </li> -->
-                           <li class="nav__item">
-                     <a  href="https://www.facebook.com/profile.php?id=100083322130148 "  target="_blank" class="nav__link">
-                        <span>02</span> facebook
-                     </a>
-                  </li>
+                     </li> 
 
                   <li class="nav__item">
                      <a  href="https://www.instagram.com/swr2_photo/ "  target="_blank" class="nav__link">
                         <span>03</span> instagram 
                      </a>
                   </li>
-               </ul>
+         
+                  <li class="nav__item">
+                     <a  href="https://www.facebook.com/profile.php?id=100083322130148/ "  target="_blank" class="nav__link">
+                        <span>04</span> facebook 
+                     </a>
+                  </li>
+      
 
 
                <div class="nav__buttons">
-                  <div class="nav__notification">
-                     <img src="assets/img/bell.png" alt="image" class="nav__bell">
-                     <div class="nav__circle">2</div>
+                  <div >
                   </div>
 
-                  <a href="" class="button button__dark">
-                     <input type="file">
-                     ส่งคำคมวันคริสต์มาส</a>
                </div>
 
                <!-- Close button -->
@@ -96,9 +92,63 @@
                      แบ่งปันจิตวิญญาณและความสุขแห่งคริสต์มาสด้วยคำคมในเทศกาลเหล่านี้
                   </p>
 
-                  <a href="#" class="button">
-                     <input type="file">
-                     ส่งคำคมวันคริสต์มาส</a>
+                  <a id="submitButton" href="/upload/file.html" class="button" onclick="checkSubmissionDate()">
+                     ส่งคำคมวันคริสต์มาส
+                   </a>
+                   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                   <script>
+                   function checkSubmissionDate() {
+                     // Set the start and end dates for submission in local time (Asia/Bangkok time zone)
+                     const startDate = new Date("2023-12-23T00:00:00+07:00");
+                     const endDate = new Date("2023-12-24T23:30:00+07:00");
+                   
+                     // Get the current date and time
+                     const currentDate = new Date();
+                   
+                     // Compare the current date with the submission period
+                     if (currentDate >= startDate && currentDate <= endDate) {
+                       // If the current date is within the submission period, proceed with the submission
+
+                       // You can remove the alert and let the user navigate to the submission page
+                     } else {
+                       // If the current date is outside the submission period, prevent the submission
+                       Swal.fire({
+                           icon: 'error',
+                           title: '<span style="color: red; font-family: \'Your Christmas Font\', sans-serif; font-size: 20px;">ขณะนี้ยังไม่ถึงกำหนดการการส่ง<br>กรุณากลับมาใหม่อีกครั้งใน<br>วันที่ 23 ธันวาคม 2566</span>',
+                           showConfirmButton: false,
+                           timer: 4000,
+                           customClass: {
+                              popup: 'swal-mobile-size',
+                              title: 'swal-mobile-title',
+                           },
+                        });
+                       // You can also prevent the default behavior of the link to stop navigation
+                       event.preventDefault();
+                     }
+                   }
+                   </script>
+                   
+                   <style>
+                        @media (max-width: 400px) {
+                           .swal-mobile-size {
+                              width: 90% !important;
+                              left: 5% !important;
+                              margin-left: 0 !important;
+                              margin-right: 0 !important;
+                           }
+
+                           .swal-mobile-title {
+                              font-size: 14px !important;
+                           }
+                     }
+
+               
+
+                   </style>
+                   
+                   <div id="result"></div>
+         
                   
                </div>
 
@@ -109,7 +159,9 @@
             </div>
          </section>
       </main>
-
+      <script src="https://app.embed.im/snow.js" defer></script>
+      <script src="assets/js/main.js"></script>
+   
       <!--=============== SNOW JS ===============-->
       <script src="https://app.embed.im/snow.js" defer></script>
 

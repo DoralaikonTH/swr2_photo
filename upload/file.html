@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload with Progress Bar | CodingNepal</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="style.css">
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+<!--=============== REMIXICONS ===============-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.css">
+  
+<header class="header" id="header">
+  <nav class="nav container">
+     <a href="/" class="nav__logo">
+        <span>Swr2_Photo</span>
+        <span>Merry Christmas</span>
+     </a>
+
+     <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+           <li class="nav__item">
+              <a href="index.html" class="nav__link active-link">
+                 <span>01</span> หน้าหลัก
+              </a>
+           </li>
+           
+           <li class="nav__item">
+              <a href="crad.html" class="nav__link">
+                 <span>02</span> ประกาศผลผู้ชนะ
+              </a>
+           </li>
+
+           <li class="nav__item">
+              <a  href="https://www.instagram.com/swr2_photo/ "  target="_blank" class="nav__link">
+                 <span>03</span> instagram 
+              </a>
+           </li>
+        </ul>
+
+
+        <div class="nav__buttons">
+           <div>
+           </div>
+
+
+        </div>
+
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+           <i class="ri-close-line"></i>
+        </div>
+     </div>
+
+     <!-- Toggle button-->
+     <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-apps-2-line"></i>
+     </div>
+  </nav>
+</header>
+<script></script>
+  <!-- Add this to the head of your HTML file -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>ส่งภาพประกวดคริสมาสตร์</header>
+    <form action="#">
+      <input class="file-input" type="file" name="file" accept="image/*" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>เรียกดูไฟล์เพื่ออัปโหลด</p>
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://app.embed.im/snow.js" defer></script>
+
+</body>
+</html>
+
+     
+

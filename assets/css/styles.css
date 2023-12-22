@@ -244,17 +244,9 @@ img {
   border-radius: .75rem;
   box-shadow: 0 4px 24px hsla(0, 0%, 0%, .2);
   transition: background-color .4s;
-  overflow: hidden;
 }
 
-.button input[type="file"] {
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: scale(3);
-  opacity: 0;
-}
+
 
 .button:hover {
   background-color: var(--first-color-alt);
