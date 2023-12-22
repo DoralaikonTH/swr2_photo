@@ -189,8 +189,3 @@ function addMediaQueryStyles() {
 // Call the function to add styles when needed
 addMediaQueryStyles();
 
-  uploadedArea.classList.add("onprogress");
-  progressArea.innerHTML = progressHTML;
-}
-
-
