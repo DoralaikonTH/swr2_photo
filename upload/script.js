@@ -45,7 +45,12 @@ fileInput.addEventListener("change", ({ target }) => {
     Swal.fire({
       icon: 'error',
       title: 'การเลือกไฟล์ไม่ถูกต้อง',
-      text: 'โปรดเลือกไฟล์ภาพที่ถูกต้อง.',
+      html: 'โปรดเลือกไฟล์ภาพที่ถูกต้อง.',
+      customClass: {
+        popup: 'swal-mobile-size',
+        title: 'swal-mobile-title',
+        html: 'swal-mobile-html',
+     },
     });
     // You can also update the UI to inform the user about the invalid file selection.
   }
@@ -53,6 +58,24 @@ fileInput.addEventListener("change", ({ target }) => {
 
 // file upload function
 async function uploadFile(file, name) {
+  const maxFileSizeMB = 10;
+  const maxFileSizeBytes = maxFileSizeMB * 1024 * 1024;
+
+  if (file.size > maxFileSizeBytes) {
+    Swal.fire({
+      icon: 'error',
+      title: 'ขนาดไฟล์เกินขีดจำกัด',
+      html: `ไฟล์ ${name} <br> มีขนาดเกิน ${maxFileSizeMB} MB ที่กำหนด`,
+      customClass: {
+        popup: 'swal-mobile-size',
+        title: 'swal-mobile-title',
+        html: 'swal-mobile-html',
+     },
+    });
+    return; // Abort the upload process
+  }
+
+  
   const cloudName = 'dfmd2icqt'; // replace with your Cloudinary cloud name
   const unsignedUploadPreset = 'swr2_photo'; // replace with your unsigned upload preset
 
@@ -135,6 +158,32 @@ function handleUploadFailure(name) {
   uploadedArea.classList.add("onprogress");
   progressArea.innerHTML = progressHTML;
 }
+// Add a style element to the head with the specified media query styles
+function addMediaQueryStyles() {
+  const styles = `
+    @media (max-width: 344px) {
+      .swal-mobile-size {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .swal-mobile-title {
+        font-size: 25px !important;
+      }
+      .swal-mobile-html {
+        font-size: 20px !important;
+      }
+    }
+  `;
 
+  const styleElement = document.createElement('style');
+  styleElement.type = 'text/css';
+  styleElement.appendChild(document.createTextNode(styles));
+
+  document.head.appendChild(styleElement);
+}
+
+// Call the function to add styles when needed
+addMediaQueryStyles();
 
 
