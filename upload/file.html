@@ -11,7 +11,37 @@
 <link rel="shortcut icon" href="upload/favicon.png" type="image/x-icon">
 <!--=============== REMIXICONS ===============-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.css">
-  
+  <!-- ตรวจสอบว่าวันที่เป็นหลังจาก 25 ธันวาคมหรือไม่ -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+   /* เพิ่ม CSS เพื่อกำหนดสีของปุ่ม */
+   .swal2-popup .swal2-actions .swal2-confirm {
+     background-color: #28a745; /* สีเขียว */
+     color: #fff; /* สีข้อความ */
+   }
+ </style>
+    <script>
+      window.onload = function () {
+        var today = new Date();
+        var deadline = new Date("2023-12-25"); // วันที่ 25 ธันวาคม 2023
+        if (today > deadline) {
+          // ถ้าวันนี้หลังจากวันที่กำหนด
+          Swal.fire({
+            icon: 'error',
+            title: 'กิจกรรมสิ้นสุดลงแล้ว',
+          text: 'หวังว่าจะได้พบกันใหม่...',
+            customClass: {
+              confirmButton: 'custom-confirm-button'
+            },
+            confirmButtonText: 'กลับสู่หน้าหลัก', // เปลี่ยนข้อความปุ่ม OK
+          cancelButtonText: 'ยกเลิก'
+          }).then(function () {
+            // ลิ้งกลับหรือทำอย่างอื่นตามที่คุณต้องการ
+            window.location.href = 'https://swr2photo.github.io/Christmas';
+          });
+        }
+      };
+    </script>
 <header class="header" id="header">
   <nav class="nav container">
      <a href="https://swr2photo.github.io/Christmas/" class="nav__logo">
